@@ -13,12 +13,12 @@ docker-compose stop
 docker-compose start
 ```
 
-# Run app haotruong Rails
+# Run app wedding Rails
 
 ```shell
-docker build -t app ./haotruong/.
+docker build -t app ./wedding/.
 docker volume create app-storage
-docker run -d --rm -it --name haotruong --env-file ./haotruong/.env -v app-storage:/rails/storage --network wedding_app app
+docker run -d --rm -it --name wedding --env-file ./wedding/.env -v app-storage:/rails/storage --network wedding_app app
 ```
 
 # Postgres
