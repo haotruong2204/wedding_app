@@ -1,0 +1,16 @@
+<% if post.comments.present? %>
+  <% if post.comments.size > 10 %>
+    <div class="title-comment">Gió thổi cực mạnh:</div>
+  <% elsif post.comments.size > 5 %>
+    <div class="title-comment">Gió đang mạnh lên:</div>
+  <% else %>
+    <div class="title-comment">Gió đang nổi:</div>
+  <% end %>
+  <% post.comments.select_parent_comment.reverse.each do |comment|%>
+    <%= render "comments/comment", comment: comment %>
+  <% end %>
+<% else %>
+  <p>
+    <i> Ở đây gió vẫn chưa nổi</i> <i data-feather="frown"></i>
+  </p>
+<% end %>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-control" content="public">
+  <meta name="author" content="Hảo Trương">
+  <title><%= yield(:title) %> | Blog của Hảo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="vi" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="<%= yield(:description) %>">
+  <meta name="Keywords" content="blog của hảo">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex,nofollow">
+  <meta name="msnbot" content="all,index,follow">
+  <meta property="fb:app_id" content="437508021125305" /> 
+  <meta property="og:title" content="<%= yield(:title) %>">
+  <meta property="og:url" content="https://blogcuahao.com<%= yield(:url) %>" />
+  <meta property="og:image" content="<%= yield(:image).present? ? "https://blogcuahao.com#{yield(:image)}" : "https://blogcuahao.com#{asset_path("rails.jpg")}" %>">
+  <meta property="og:description" content="<%= yield(:description) %>">
+  <link rel="canonical" href="https://blogcuahao.com/" />
+  <%= favicon_link_tag asset_path("favicon.png"), :rel => "icon", :type => "image/x-icon" %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;display=swap&amp;subset=vietnamese">
+</head>
+<body>
+  <div class="menu">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to() do %>
+            <span>Login with facebook</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+    <span class="division_line"></span>
+  </div>
+  <div class="sidebar">
+    <div class="logo-title">
+      <div class="title">
+          <a href="<%= root_path %>">
+            <%= image_tag("logo.png",alt: "Logo", class: "logo") %>
+          </a>
+          <h1></h1>
+          <div class="subtitle">
+            <p><a href="https://www.facebook.com/haotv03" target="_blank">by Hảo Trương</a></p>
+          </div>
+          <div class="description">
+            <p>✎﹏🐈؁✮</p>
+          </div>
+      </div>
+    </div>
+    <ul class="social-links animated fadeInDown">
+      <li><a href="https://www.facebook.com/haotv03" target="_blank"><img src="<%= asset_path("icons/facebook.svg") %>" alt="icon-facebook"></a></li>
+      <li><a href="https://www.instagram.com/_haortruonq" target="_blank"><img src="<%= asset_path("icons/instagram.svg") %>" alt="icon-instagram"></a></li>
+      <li><a href="https://www.linkedin.com/in/haotv03" target="_blank"><img src="<%= asset_path("icons/linkedin.svg") %>" alt="icon-linkedin"></a></li>
+    </ul>
+    <div class="footer">
+      <div class="by_farbox"><span>Copyright &copy; 2023 haotruong. All Right Reserved.</span></div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="page-top">
+      <div class="nav">
+        <ul>
+          <li>
+            <%= link_to() do %>
+              <span>Login with facebook</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <%= yield %>
+  </div>
+  <%= javascript_importmap_tags %>
+</body>
+</html>

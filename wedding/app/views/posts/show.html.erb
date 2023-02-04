@@ -1,10 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<%= provide :title, @post.title %>
+<%= provide :url, post_path(@post) %>
+<%= provide :description, @post.description %>
+<%# <%= provide :image, url_for(@post.image) %>
 
-<%= render @post %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<div class="autopagerize_page_element">
+  <div class="content">
+    <div class="post-page">
+      <div class="post animated fadeInDown">
+        <div class="post-title">
+          <h1><span><b><%= @post.title %></b></span></h1>
+        </div>
+        <div class="post-footer">
+          <div class="meta">
+            <div class="info">
+              <img src="<%= asset_path("icons/clock.svg") %>" alt="icon-clock"> <span class="date"> <%= @post.created_at.strftime(Settings.time.formats) %></span>
+            </div>
+          </div>
+        </div>
+        <div class="post-content">
+          <%= raw @post.content %>
+        </div>
+        <div class="mb-2 block-social" >
+          <%= image_tag(asset_path("like.png"), class: "img-fluid", alt: "like & share" )%>
+        </div>
+        <div class="comment">
+          <div id="comment_post_<%= @post.id %>">
+            <%# <%= render "posts/content_comment", post: @post %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

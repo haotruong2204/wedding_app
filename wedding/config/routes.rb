@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  root "dashboards#home_page"
   resources :posts
 end
